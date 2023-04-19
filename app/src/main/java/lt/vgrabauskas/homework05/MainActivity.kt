@@ -10,17 +10,18 @@ import lt.vgrabauskas.comp.Employee
 
 class MainActivity : AppCompatActivity() {
 
-    val TAG = "home and work"
     lateinit var company: Company
     lateinit var employeeListView: ListView
     lateinit var adapter: ArrayAdapter<Employee>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        company = Company("Abstergo", 25)
 
-
-
+        employeeManagement()
+        setupEmployeeListView()
     }
 
     fun employeeManagement() {
@@ -29,13 +30,19 @@ class MainActivity : AppCompatActivity() {
         val employee03 = Employee("Jenny", "Block", "60312027897")
         val employee04 = Employee("Andy", "Hull", "39101046987")
 
-        val company01 = Company("Abstergo", 25)
-
-        company01.addEmployee(employee01, "Research manager", 5)
-        company01.addEmployee(employee02, "Warehouse assistant", 3)
-        company01.addEmployee(employee03, "Human resources", 1)
-        company01.addEmployee(employee04, "Engineer", 7)
+        company.addEmployee(employee01, "Research manager", 5)
+        company.addEmployee(employee02, "Warehouse assistant", 3)
+        company.addEmployee(employee03, "Human resources", 1)
+        company.addEmployee(employee04, "Engineer", 7)
     }
 
-
+    private fun setupEmployeeListView() {
+        employeeListView = findViewById(R.id.employeeListView)
+        adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_activated_1,
+            company.employeeList
+        )
+        employeeListView.adapter = adapter
+    }
 }
