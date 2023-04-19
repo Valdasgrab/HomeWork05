@@ -19,7 +19,7 @@ class Employee(val name: String, val lastName: String, val IdNumber: String) {
 
     private fun countAge(): Int {
         var ageCount =
-            if (IdNumber[0].equals('3') || IdNumber[0].equals('4')) {
+            if (IdNumber[0] == '3' || IdNumber[0] == '4') {
                 "19" + IdNumber.substring(1, 3) +
                         "-" + IdNumber.substring(3, 5) +
                         "-" + IdNumber.substring(5, 7)
