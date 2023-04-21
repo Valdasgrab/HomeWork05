@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        button = findViewById(R.id.button)
 
         company = Company("Abstergo", 25)
 
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         setupEmployeeListView()
 
-        button = findViewById(R.id.button)
         button.setOnClickListener {
             company.sort()
             setupEmployeeListView()
