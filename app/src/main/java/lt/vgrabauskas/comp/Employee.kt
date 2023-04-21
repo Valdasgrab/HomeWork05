@@ -32,4 +32,7 @@ class Employee(val name: String, val lastName: String, val IdNumber: String) {
         return Period.between(birthday, LocalDate.now()).years
     }
 
+    override fun toString(): String {
+        return "Employee: $name $lastName Age: $age Occupation: $jobTitle, Experience: $jobExperience years"
+    }
 }

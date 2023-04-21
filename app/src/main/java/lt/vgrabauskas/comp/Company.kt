@@ -13,5 +13,10 @@ class Company(val companyName: String, val foundationYear: Int) {
 
     }
 
+    fun sort() {
+       employees.sortBy { employee: Employee -> employee.jobExperience }
+        employeeList = employees
+    }
+
 
 }

@@ -21,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         company = Company("Abstergo", 25)
 
         employeeManagement()
+        company.sort()
         setupEmployeeListView()
+
     }
 
     fun employeeManagement() {
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         company.addEmployee(employee02, "Warehouse assistant", 3)
         company.addEmployee(employee03, "Human resources", 1)
         company.addEmployee(employee04, "Engineer", 7)
+
     }
 
     private fun setupEmployeeListView() {
